@@ -30,8 +30,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <gdk-pixbuf/gdk-pixbuf-io.h>
-#include <glib/gstdio.h>
+#include <gdk-pixbuf/gdk-pixbuf.h>
 
 typedef struct
 {
