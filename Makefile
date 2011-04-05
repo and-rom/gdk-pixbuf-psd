@@ -5,7 +5,7 @@ DESTDIR=
 
 all:
 	$(CC) $(CFLAGS) io-psd.c  -o libpixbufloader-psd.so \
-		`pkg-config --cflags gtk+-2.0` \
+		`pkg-config --libs --cflags glib-2.0 gmodule-2.0 gdk-pixbuf-2.0` \
 		-shared -fpic -DGDK_PIXBUF_ENABLE_BACKEND
 
 clean:
