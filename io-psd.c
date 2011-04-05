@@ -256,7 +256,7 @@ gdk_pixbuf__psd_image_begin_load (GdkPixbufModuleSizeFunc size_func,
 {
 	PsdContext* context = g_malloc(sizeof(PsdContext));
 	if (context == NULL) {
-		g_set_error (
+		g_set_error_literal (
 			error,
 			GDK_PIXBUF_ERROR,
 			GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
@@ -291,7 +291,7 @@ gdk_pixbuf__psd_image_stop_load (gpointer context_ptr, GError **error)
 	gboolean retval = TRUE;
 
 	if (ctx->state != PSD_STATE_DONE) {
-		g_set_error (
+		g_set_error_literal (
 			error,
 			GDK_PIXBUF_ERROR,
 			GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
@@ -343,14 +343,14 @@ gdk_pixbuf__psd_image_load_increment (gpointer      context_ptr,
 					    && ctx->color_mode != PSD_MODE_CMYK
 					    && ctx->color_mode != PSD_MODE_DUOTONE
 					) {
-						g_set_error (error, GDK_PIXBUF_ERROR,
+						g_set_error_literal (error, GDK_PIXBUF_ERROR,
 							GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
 							("Unsupported color mode"));
 						return FALSE;
 					}
 					
 					if (ctx->depth != 8 && ctx->depth != 16) {
-						g_set_error (error, GDK_PIXBUF_ERROR,
+						g_set_error_literal (error, GDK_PIXBUF_ERROR,
 							GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
 							("Unsupported color depth"));
 						return FALSE;
@@ -380,7 +380,7 @@ gdk_pixbuf__psd_image_load_increment (gpointer      context_ptr,
 					if (ctx->lines_lengths == NULL || ctx->buffer == NULL ||
 						ctx->pixbuf == NULL)
 					{
-						g_set_error (error, GDK_PIXBUF_ERROR,
+						g_set_error_literal (error, GDK_PIXBUF_ERROR,
 							GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
 							("Insufficient memory to load PSD image file"));
 						return FALSE;
@@ -393,7 +393,7 @@ gdk_pixbuf__psd_image_load_increment (gpointer      context_ptr,
 							g_malloc(ctx->width*ctx->height*ctx->depth_bytes);
 
 						if (ctx->ch_bufs[i] == NULL) {
-							g_set_error (error, GDK_PIXBUF_ERROR,
+							g_set_error_literal (error, GDK_PIXBUF_ERROR,
 								GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
 								("Insufficient memory to load PSD image file"));
 							return FALSE;
@@ -436,7 +436,7 @@ gdk_pixbuf__psd_image_load_increment (gpointer      context_ptr,
 						ctx->state = PSD_STATE_CHANNEL_DATA;
 						reset_context_buffer(ctx);
 					} else {
-						g_set_error (error, GDK_PIXBUF_ERROR,
+						g_set_error_literal (error, GDK_PIXBUF_ERROR,
 							GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
 							("Unsupported compression type"));
 						return FALSE;
