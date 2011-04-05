@@ -13,6 +13,6 @@ clean:
 
 install:
 	chmod 644 libpixbufloader-psd.so
-	mkdir -p $(DESTDIR)/usr/lib/gtk-2.0/2.10.0/loaders/
-	cp libpixbufloader-psd.so $(DESTDIR)/usr/lib/gtk-2.0/2.10.0/loaders/
-
+	mkdir -p $(DESTDIR)/usr/lib/gdk-pixbuf-2.0/2.10.0/loaders/
+	cp libpixbufloader-psd.so $(DESTDIR)/usr/lib/gdk-pixbuf-2.0/2.10.0/loaders/
+	gdk-pixbuf-query-loaders --update-cache
