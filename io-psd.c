@@ -585,12 +585,10 @@ MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
 
 	info->name = "psd";
 	info->signature = signature;
-	//info->description = N_("Adobe Photoshop format");
 	info->description = "Adobe Photoshop format";
 	info->mime_types = mime_types;
 	info->extensions = extensions;
 	info->flags = GDK_PIXBUF_FORMAT_THREADSAFE;
-	info->flags = 0;
 	info->license = "LGPL";
 }
 
