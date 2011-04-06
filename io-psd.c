@@ -1,6 +1,7 @@
 /*
  * GdkPixbuf library - PSD image loader
  *
+ * Copyright (C) 2011 Martin Szulecki
  * Copyright (C) 2008 Jan Dudek
  *
  * Authors: Jan Dudek <jd@jandudek.com>
