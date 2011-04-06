@@ -23,8 +23,7 @@
 
 /*
  * TODO
- * - report errors from parse_psd_header
- * - other color modes (CMYK at least)
+ * - report errors from psd_parse_header
  * - i18n
  */
 
