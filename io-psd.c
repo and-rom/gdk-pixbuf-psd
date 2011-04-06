@@ -27,9 +27,14 @@
  * - i18n
  */
 
+#define GDK_PIXBUF_ENABLE_BACKEND
+
+#include "config.h"
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <gmodule.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 
 typedef struct
