@@ -1,16 +1,24 @@
-Installation instructions
+This project aims to provide a GdkPixbuf loader for the PSD file format.
 
-$ tar xvf gdk-pixbuf-psd_20081217.tar.gz
-$ cd gdk-pixbuf-psd_20081217
+GdkPixbuf is part of GTK and applications like Eye of GNOME and gThumb use it
+to handle image loading. The loader provided by this project will let those
+applications open PSD images and enable thumbnails in nautilus, too.
+
+The loader supports:
+- RGB and CYMK images
+- RLE compression
+- 8 and 16 bit color depths
+
+This implementation is based on this specification [1] and PHP PSD Reader [2].
+
+[1] http://www.fileformat.info/format/psd/egff.htm
+[2] http://www.kingsquare.nl/phppsdreader
+
+Installation:
+
+$ ./configure
 $ make
-$ sudo cp libpixbufloader-psd.so /usr/lib/gtk-2.0/2.10.0/loaders/
+$ sudo make install
+$ gdk-pixbuf-query-loaders --update-cache
 
-Make sure the above path is correct on your system. Now you need to setup loader with gdk-pixbuf-query-loaders. On Ubuntu (Intrepid) it goes like this:
-
-$ gdk-pixbuf-query-loaders /usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-psd.so | sudo tee /usr/lib/gtk-2.0/2.10.0/loader-files.d/gdk-pixbuf-psd.loaders
-
-On Gentoo:
-
-$ su
-# gdk-pixbuf-query-loaders /usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-psd.so >> /etc/gtk-2.0/gdk-pixbuf.loaders
-
+If you install from source, run "./autogen.sh" to generate the build files.
