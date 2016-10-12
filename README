@@ -1,3 +1,7 @@
+Original
+Article: http://blog.sukimashita.com/2011/04/21/view-psd-photoshop-files-on-linux-desktop-with-gnome-using-gdk-pixbuf-psd/
+Repo: https://cgit.sukimashita.com/gdk-pixbuf-psd.git/
+
 This project aims to provide a GdkPixbuf loader for the PSD file format.
 
 GdkPixbuf is part of GTK and applications like Eye of GNOME and gThumb use it
